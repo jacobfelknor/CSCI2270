@@ -1,0 +1,1 @@
+My implementation does not allow shifts of a negative value. Will return original list.

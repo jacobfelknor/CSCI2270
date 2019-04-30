@@ -1,0 +1,2 @@
+NOTE:
+I am treating 0 as an even number. This doesn't end up mattering because it is a sum, but I just wanted to make that clear. 

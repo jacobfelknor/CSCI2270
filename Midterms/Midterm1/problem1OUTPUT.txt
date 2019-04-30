@@ -1,0 +1,14 @@
+7 -> 4 -> 6 -> 2 -> NULL
+Sum of evens: 12
+
+Current List:
+3 -> 9 -> 2 -> NULL
+Sum of evens: 2
+
+Current List:
+NULL
+Sum of evens: 0
+
+Current List:
+7 -> 3 -> 1 -> 99 -> 101 -> NULL
+Sum of evens: 0

@@ -1,0 +1,19 @@
+TEST CASE 1:
+Current List: 1 -> 2 -> 3 -> 4 -> NULL
+
+List shifted by 2:
+3 -> 4 -> 1 -> 2 -> NULL
+
+TEST CASE 2:
+Current List: 1 -> 2 -> 3 -> 4 -> NULL
+
+List shifted by 5:
+2 -> 3 -> 4 -> 1 -> NULL
+
+TEST CASE 3:
+Current List: 1 -> 2 -> 3 -> 4 -> NULL
+
+List shifted by 0:
+1 -> 2 -> 3 -> 4 -> NULL
+
+TEST CASE 4:

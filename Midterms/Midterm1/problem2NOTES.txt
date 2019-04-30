@@ -1,0 +1,8 @@
+I implemented my splitEvenOdd function within my class. I created a new instance of my 
+class within this function to put even numbers (I defined 0 as even for this 
+implementation). If i came across an even number in my original linked list, I put that 
+value into the new list i created and deleted it from the original. After it had finished 
+transversing the list, I was left with a new list containing the even numbers and the 
+original list was left with the odd numbers. 
+
+Also, I defined my displayList function outside my class to allow me to display the newly created list without having the instance defined in main. My splitEvenOdd function returns a pointer to the head of the new list created within it. 

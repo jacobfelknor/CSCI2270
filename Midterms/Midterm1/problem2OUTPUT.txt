@@ -1,0 +1,36 @@
+TEST CASE 1:
+Original List:
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> NULL
+
+Even List: 2 -> 4 -> 6 -> 8 -> 10 -> NULL
+Odd List: 1 -> 3 -> 5 -> 7 -> 9 -> NULL
+
+
+TEST CASE 2:
+Original List:
+0 -> 2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16 -> 18 -> NULL
+
+Even List: 0 -> 2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16 -> 18 -> NULL
+Odd List: NULL
+
+
+TEST CASE 3:
+Original List:
+0 -> 3 -> 6 -> 9 -> 12 -> 15 -> 18 -> 21 -> 24 -> 27 -> NULL
+
+Even List: 0 -> 6 -> 12 -> 18 -> 24 -> NULL
+Odd List: 3 -> 9 -> 15 -> 21 -> 27 -> NULL
+
+TEST CASE 4:
+Original List:
+NULL
+
+Even List: NULL
+Odd List: NULL
+
+TEST CASE 5:
+Original List:
+0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> NULL
+
+Even List: 0 -> 2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16 -> NULL
+Odd List: 1 -> 3 -> 5 -> 7 -> 9 -> 11 -> 13 -> 15 -> NULL
