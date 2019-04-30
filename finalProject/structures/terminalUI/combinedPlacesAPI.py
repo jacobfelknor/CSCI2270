@@ -235,9 +235,9 @@ def main():
 
     g = geocoder.ip('me')
 
-    #latlng = g.latlng
+    latlng = g.latlng
 
-    latlng = [39.947141, -105.056640] #Broomfield, CO
+    #latlng = [39.947141, -105.056640] #Broomfield, CO
     # latlng = [40.005657, -105.264368] #Boulder, CO
 
     american = places(gmaps, "american food", latlng)
