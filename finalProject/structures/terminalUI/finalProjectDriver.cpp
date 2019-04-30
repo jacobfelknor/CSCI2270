@@ -142,8 +142,11 @@ int main(int argc, char *argv[]){
 				string name;
 				cout << endl << "Enter the name of the restaurant: ";
 				getline(cin, name);
-				if(g0.findVertex(name)->saved){
-					g0.removeSaved(name);
+				vertex* found = g0.findVertex(name);
+				if(found){
+					if(found->saved){
+						g0.removeSaved(name);
+					}
 				}else{
 					cout << "You have not saved this restaurant. No changes made" << endl;
 				}

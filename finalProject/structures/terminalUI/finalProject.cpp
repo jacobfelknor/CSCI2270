@@ -260,12 +260,13 @@ void Graph::recommend(string category){
 
 	//after weights are set, reset counts so they reflect the # of times 
 	//restaurant has been saved
-
-	for(int i = 0; i < savedRestaurants.size(); i++){
-		
-		for(int j = 0; j < savedRestaurants[i]->Edges.size(); j++){
-			if(savedRestaurants[i]->Edges[j].v->saved){
-				savedRestaurants[i]->Edges[j].v->count--;
+	if(catCheck){
+		for(int i = 0; i < savedRestaurants.size(); i++){
+			
+			for(int j = 0; j < savedRestaurants[i]->Edges.size(); j++){
+				if(savedRestaurants[i]->Edges[j].v->saved){
+					savedRestaurants[i]->Edges[j].v->count--;
+				}
 			}
 		}
 	}
@@ -316,6 +317,8 @@ void Graph::saveRestaurant(string restaurantName){
 		v->saved = true;
 		v->count++;
 	}
+
+	saveData();
 }
 
 void Graph::removeSaved(string restaurantName){
@@ -328,7 +331,7 @@ void Graph::removeSaved(string restaurantName){
 			cout << "Are you sure you want to remove " <<
 			savedRestaurants[i]->name << "? Y/n" << endl;
 			getline(cin, choice);
-			if(choice == "Y"){
+			if(choice == "Y" || choice == "y"){
 				vertex *target = findVertex(restaurantName);
 				target->saved = false;
 				target->count = 0;
@@ -340,6 +343,8 @@ void Graph::removeSaved(string restaurantName){
 			break;
 		}
 	}
+
+	saveData();
 }
 
 

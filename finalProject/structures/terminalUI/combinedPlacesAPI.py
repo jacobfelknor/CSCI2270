@@ -235,9 +235,9 @@ def main():
 
     g = geocoder.ip('me')
 
-    latlng = g.latlng
+    #latlng = g.latlng
 
-    # latlng = [39.947141, -105.056640] #Broomfield, CO
+    latlng = [39.947141, -105.056640] #Broomfield, CO
     # latlng = [40.005657, -105.264368] #Boulder, CO
 
     american = places(gmaps, "american food", latlng)
@@ -326,56 +326,7 @@ def main():
             writer.writerow([name, category, rating, address, lat, lng])
 		
 
-    # with open('Pizza.csv', mode='w', newline='') as csv_file:
-	   #  fieldnames = ['name', 'rating', 'address', 'distance']
-	   #  writer = csv.writer(csv_file, delimiter='"')
-
-	   #  for i in range(20):
-	   #  	distance = haversine(latlng[0], latlng[1], pizza['results'][i]['geometry']['location']['lat'], pizza['results'][i]['geometry']['location']['lng'])
-	   #  	writer.writerow([pizza['results'][i]['name'], pizza['results'][i]['rating'], pizza['results'][i]['formatted_address'], distance])
-
-    # with open('Italian.csv', mode='w', newline='') as csv_file:
-	   #  fieldnames = ['name', 'rating', 'address', 'distance']
-	   #  writer = csv.writer(csv_file, delimiter='"')
-
-	   #  for i in range(20):
-	   #  	distance = haversine(latlng[0], latlng[1], italian['results'][i]['geometry']['location']['lat'], italian['results'][i]['geometry']['location']['lng'])
-	   #  	writer.writerow([italian['results'][i]['name'], italian['results'][i]['rating'], italian['results'][i]['formatted_address'], distance])
-	
-
-    # with open('Chinese.csv', mode='w', newline='') as csv_file:
-	   #  fieldnames = ['name', 'rating', 'address', 'distance']
-	   #  writer = csv.writer(csv_file, delimiter='"')
-
-	   #  for i in range(20):
-	   #  	distance = haversine(latlng[0], latlng[1], chinese['results'][i]['geometry']['location']['lat'], chinese['results'][i]['geometry']['location']['lng'])
-	   #  	writer.writerow([chinese['results'][i]['name'], chinese['results'][i]['rating'], chinese['results'][i]['formatted_address'], distance])
-
-    # with open('Mexican.csv', mode='w', newline='') as csv_file:
-	   #  fieldnames = ['name', 'rating', 'address', 'distance']
-	   #  writer = csv.writer(csv_file, delimiter='"')
-
-	   #  for i in range(20):
-	   #  	distance = haversine(latlng[0], latlng[1], mexican['results'][i]['geometry']['location']['lat'], mexican['results'][i]['geometry']['location']['lng'])
-	   #  	writer.writerow([mexican['results'][i]['name'], mexican['results'][i]['rating'], mexican['results'][i]['formatted_address'], distance])
-
-
-    # with open('Indian.csv', mode='w', newline='') as csv_file:
-	   #  fieldnames = ['name', 'rating', 'address', 'distance']
-	   #  writer = csv.writer(csv_file, delimiter='"')
-
-	   #  for i in range(20):
-	   #  	distance = haversine(latlng[0], latlng[1], indian['results'][i]['geometry']['location']['lat'], indian['results'][i]['geometry']['location']['lng'])
-	   #  	writer.writerow([indian['results'][i]['name'], indian['results'][i]['rating'], indian['results'][i]['formatted_address'], distance])
-
-    # with open('Sandwiches.csv', mode='w', newline='') as csv_file:
-	   #  fieldnames = ['name', 'rating', 'address', 'distance']
-	   #  writer = csv.writer(csv_file, delimiter='"')
-
-	   #  for i in range(20):
-	   #  	distance = haversine(latlng[0], latlng[1], sandwiches['results'][i]['geometry']['location']['lat'], sandwiches['results'][i]['geometry']['location']['lng'])
-	   #  	writer.writerow([sandwiches['results'][i]['name'], sandwiches['results'][i]['rating'], sandwiches['results'][i]['formatted_address'], distance])
-	
+    
 
     #done gathering data. Run C++ program
 
