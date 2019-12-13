@@ -1,73 +1,74 @@
-#include<iostream>
-#include<time.h>
+#include <iostream>
+#include <time.h>
 //for sort() function
 #include <algorithm>
 
 using namespace std;
 
-const int ARRAY_SIZE = 100e3;
-
-
+const int ARRAY_SIZE = 1e7;
 
 // A class for Min Heap
 class MinHeap
 {
-    public:
-        MinHeap(int capacity);
-        ~MinHeap();
-        void push(int k);
-        int pop();
-        int peek() { return heap[1]; }
-        void printHeap();
-    private:
-        int *heap; // pointer to array of elements in heap
-        int capacity; // maximum possible size of min heap
-        int currentSize; // Current number of elements in min heap      
-        void MinHeapify(int index);
-        int parent(int i) { return (i-1)/2; }
-        int left(int i) { return (2*i+1); }
-        int right(int i) { return (2*i + 2); }
-        void swap(int &x, int &y);
+public:
+    MinHeap(int capacity);
+    ~MinHeap();
+    void push(int k);
+    int pop();
+    int peek() { return heap[1]; }
+    void printHeap();
+
+private:
+    int *heap;       // pointer to array of elements in heap
+    int capacity;    // maximum possible size of min heap
+    int currentSize; // Current number of elements in min heap
+    void MinHeapify(int index);
+    int parent(int i) { return (i - 1) / 2; }
+    int left(int i) { return (2 * i + 1); }
+    int right(int i) { return (2 * i + 2); }
+    void swap(int &x, int &y);
 };
- 
+
 MinHeap::MinHeap(int cap)
 {
     currentSize = 0;
-    capacity = cap; 
+    capacity = cap;
     heap = new int[capacity];
 }
 
 MinHeap::~MinHeap()
 {
-    delete [] heap;
+    delete[] heap;
 }
- 
-void MinHeap::push(int k)  //insert function
-{
-   if(currentSize == capacity){
-        cout << "at capacity, cannot insert key" << endl;
 
-   }else{
+void MinHeap::push(int k) //insert function
+{
+    if (currentSize == capacity)
+    {
+        cout << "at capacity, cannot insert key" << endl;
+    }
+    else
+    {
         currentSize++;
-        int i = currentSize -1;
+        int i = currentSize - 1;
         heap[i] = k;
 
-    // Fix the min heap property if it is violated
-        while(i!=0 && heap[parent(i)] > heap[i]){
+        // Fix the min heap property if it is violated
+        while (i != 0 && heap[parent(i)] > heap[i])
+        {
             swap(heap[i], heap[parent(i)]);
             i = parent(i);
         }
-
-
-   }
+    }
 }
- 
+
 // for now, just return -1 if there's nothing to pop
 int MinHeap::pop() //extractMin funciton
 {
-    if(currentSize <= 0)
+    if (currentSize <= 0)
         return -1;
-    if(currentSize == 1){
+    if (currentSize == 1)
+    {
         currentSize--;
         return heap[0];
     }
@@ -75,16 +76,13 @@ int MinHeap::pop() //extractMin funciton
     int poppedVal = heap[0];
 
     // minHeapify stuff here
-    heap[0] = heap[currentSize-1];
+    heap[0] = heap[currentSize - 1];
     currentSize--;
     MinHeapify(0);
 
-
-
     return poppedVal;
-    
 }
- 
+
 // This method assumes that the subtrees are already heapified
 void MinHeap::MinHeapify(int i)
 {
@@ -92,20 +90,22 @@ void MinHeap::MinHeapify(int i)
     int rightChild = right(i);
     int smallest = i;
 
-    if(leftChild < currentSize && heap[leftChild] < heap[i]){
+    if (leftChild < currentSize && heap[leftChild] < heap[i])
+    {
         smallest = leftChild;
     }
-    if(rightChild < currentSize && heap[rightChild] < heap[smallest]){
+    if (rightChild < currentSize && heap[rightChild] < heap[smallest])
+    {
         smallest = rightChild;
     }
 
-
-    if(smallest != i){
+    if (smallest != i)
+    {
         swap(heap[i], heap[smallest]);
         MinHeapify(smallest);
     }
 }
- 
+
 void MinHeap::swap(int &x, int &y)
 {
     int temp = x;
@@ -113,35 +113,35 @@ void MinHeap::swap(int &x, int &y)
     y = temp;
 }
 
-void MinHeap::printHeap() {
+void MinHeap::printHeap()
+{
     cout << "The heap array is currently {";
-    for (int i = 0; i < currentSize; i++) 
+    for (int i = 0; i < currentSize; i++)
     {
         cout << heap[i];
-        if (i < currentSize-1) {
+        if (i < currentSize - 1)
+        {
             cout << ", ";
         }
     }
     cout << "}" << endl;
 }
- 
+
 int main()
 {
 
     ////////////////////////////////////////////////////////////////////////
     // CREAT A TEST ARRAY OF RANDOM INTEGERS
-    int arr[ARRAY_SIZE];
-    for( int i = 0; i < ARRAY_SIZE; i++)
-        arr[i] = rand()%1000;
-
+    int *arr = new int[ARRAY_SIZE];
+    for (int i = 0; i < ARRAY_SIZE; i++)
+        arr[i] = rand() % 1000;
 
     // cout << "the array is: " << endl;
 
     // for( int i = 0; i < ARRAY_SIZE; i ++ )
     //     cout << arr[i] << " ";
 
-
-    int startTime, endTime;   
+    int startTime, endTime;
     double execTime;
 
     ////////////////////////////////////////////////////////////////////////
@@ -159,7 +159,7 @@ int main()
     //             arr[j] = temp;
     //         }
     // }
-    
+
     // endTime = clock();
 
     // execTime = (double)(endTime-startTime)/CLOCKS_PER_SEC;
@@ -170,46 +170,46 @@ int main()
     // TEST HEAP SORT
 
     // Re-populate test array with random ints
-    for( int i = 0; i < ARRAY_SIZE; i++)
-        arr[i] = rand()%1000;
+    for (int i = 0; i < ARRAY_SIZE; i++)
+        arr[i] = rand() % 1000;
 
-    MinHeap h0(ARRAY_SIZE); 
+    MinHeap h0(ARRAY_SIZE);
 
     startTime = clock();
 
     // write array elements to heap
-    for( int i = 0; i < ARRAY_SIZE; i++){
+    for (int i = 0; i < ARRAY_SIZE; i++)
+    {
         h0.push(arr[i]);
     }
 
     //h0.printHeap();
 
     //pop elements off into the array, resulting in sorted array
-    for( int i = 0; i < ARRAY_SIZE; i++)
+    for (int i = 0; i < ARRAY_SIZE; i++)
         arr[i] = h0.pop();
 
     endTime = clock();
 
-    execTime = (double)(endTime-startTime)/CLOCKS_PER_SEC;
+    execTime = (double)(endTime - startTime) / CLOCKS_PER_SEC;
 
     // for( int i = 0; i < ARRAY_SIZE; i++)
     //     cout << arr[i] << endl;
 
     cout << "heap sort execution time: " << execTime << endl;
 
-
-    for( int i = 0; i < ARRAY_SIZE; i++)
-        arr[i] = rand()%1000;
+    for (int i = 0; i < ARRAY_SIZE; i++)
+        arr[i] = rand() % 1000;
 
     startTime = clock();
 
-    sort(arr, arr+ARRAY_SIZE);
+    sort(arr, arr + ARRAY_SIZE);
 
     endTime = clock();
 
-    execTime = (double)(endTime-startTime)/CLOCKS_PER_SEC;
+    execTime = (double)(endTime - startTime) / CLOCKS_PER_SEC;
     cout << "sort() execution time: " << execTime << endl;
 
-
+    delete[] arr;
     return 0;
 }
